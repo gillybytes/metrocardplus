@@ -14,14 +14,15 @@ logo = """
 
 menu = """What would you like to do next?
 1. Add funds.
-2. Calculate remaining rides.
-3. See balance.
-4. See expiration date.
-5. Exit program.
+2. Update balance.
+3. See rides.
+4. See balance.
+5. See expiration date.
+6. Exit program
 """
 
 def get_user_input():
-    return int(input(menu + "Enter the number of your choice: "))
+    return int(input(menu + "\nEnter the number of your choice: "))
 
 
 print(logo)
@@ -35,25 +36,25 @@ print()
 print(metrocard, "\n")
 
 choice = get_user_input()
-print()
+print("")
 
-while choice != 5:
-    while choice < 1 or choice > 5:
-        choice = int(input("Please enter a number 1 thru 5, inclusive: "))
+while choice != 6:
+    while choice < 1 or choice > 6:
+        choice = int(input("Please enter a number 1 thru 6, inclusive: "))
+    print()
     if choice == 1:
         amount = float(input("Enter the amount you'd like to add: $"))
         metrocard.add_value(amount)
         metrocard.get_balance()
-        print()
-        choice = get_user_input()
     elif choice == 2:
-        print(metrocard.calc_rides(), "\n")
-        choice = choice = get_user_input()
+        rides = int(input("Enter the number of rides you've taken: "))
+        metrocard.update_balance(rides)
+        print(metrocard)
     elif choice == 3:
-        metrocard.get_balance()
-        print()
-        choice = get_user_input()
+        metrocard.get_rides()
     elif choice == 4:
+        metrocard.get_balance()
+    elif choice == 5:
         metrocard.get_expiry_date()
-        print()
-        choice = get_user_input()
+    print("")
+    choice = get_user_input()
