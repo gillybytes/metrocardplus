@@ -23,6 +23,11 @@ class Card:
 
     def add_value(self, amount):
         self.balance += amount
+        print("${0} has been added.".format(amount))
+
+    def calc_rides(self):
+        rides = int(self.balance / self.FARE)
+        return "You have {0} rides remaining.".format(rides)
 
 # Test Card class
 metrocard = Card(20)
