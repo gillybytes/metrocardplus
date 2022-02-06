@@ -22,8 +22,22 @@ print()
 print(metrocard, "\n")
 
 print("What would you like to do next?")
-choice = int(input("""Enter the number of your choice:
-1. Add funds.
-2. Calculate rides.
-"""))
-print(choice)
+choice = int(input("""1. Add funds.
+2. Calculate the number of rides.
+3. See balance.
+4. See expiration date.
+Enter the number of your choice: """))
+print()
+
+while choice > 4:
+    choice = int(input("Please enter a number 1 thru 4, inclusive: "))
+
+if choice == 1:
+    amount = float(input("Enter the amount you'd like to add: $"))
+    metrocard.add_value(amount)
+elif choice == 2:
+    print("To do")
+elif choice == 3:
+    metrocard.get_balance()
+else:
+    metrocard.get_expiry_date()
